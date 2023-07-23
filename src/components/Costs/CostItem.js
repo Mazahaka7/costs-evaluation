@@ -1,6 +1,6 @@
 import CostDate from "./CostDate";
 import Card from "./Card";
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./CostItem.css";
 
 const CostItem = (props) => {
@@ -9,7 +9,7 @@ const CostItem = (props) => {
   const changeDescriptionHandler = () => {
     SetDescription("My new text");
     console.log(description);
-  }
+  };
   return (
     <Card className="cost-item">
       <CostDate date={props.date} />
@@ -20,5 +20,5 @@ const CostItem = (props) => {
       <button onClick={changeDescriptionHandler}>Change</button>
     </Card>
   );
-}
+};
 export default CostItem;

@@ -1,41 +1,56 @@
 import React, { useState } from "react";
 import "./CostForm.css";
-const CostForm = () => {
-  const [name, setName] = useState(" ");
+
+const CostForm = (props) => {
+  const [inputName, setInputName] = useState("");
+  const [inputAmount, setInputAmount] = useState("");
+  const [inputDate, setInputDate] = useState("");
+
   const nameChangeHandler = (event) => {
-    setName(event.target.value);
+    setInputName(event.target.value);
   };
-  const [amount, setAmount] = useState(" ");
-  const amountChangeChangeHandler = (event) => {
-    setAmount(event.target.value);
+  const amountChangeHandler = (event) => {
+    setInputAmount(event.target.value);
   };
-  const [date, setDate] = useState(" ");
   const dateChangeHandler = (event) => {
-    setDate(event.target.value);
+    setInputDate(event.target.value);
   };
+
+  const submitHandler = (event) => {
+    event.preventDefault()  
+    const costData = {
+      name: inputName,
+      amount: inputAmount,
+      date: inputDate,
+    }
+    setInputName('');
+    setInputAmount(''); 
+    setInputDate('');
+
+    props.onSaveCostData(costData);
+  }
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-cost__controls">
         <div className="new-cost__control">
           <label>Description</label>
-          <input type="text" onChange={nameChangeHandler} />
+          <input type="text" value={inputName} onChange={nameChangeHandler} />
         </div>
         <div className="new-cost__control">
           <label>Amount</label>
-          <input
+          <input value={inputAmount} onChange={amountChangeHandler}
             type="number"
             min="0.01"
             step="0.01"
-            onChange={amountChangeChangeHandler}
           />
         </div>
         <div className="new-cost__control">
           <label>Data</label>
-          <input
+          <input value={inputDate} onChange={dateChangeHandler}
             type="date"
             min="2023-01-01"
             step="2023-12-12"
-            onChange={dateChangeHandler}
           />
         </div>
         <div className="new-cost-actions">

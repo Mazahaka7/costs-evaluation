@@ -17,18 +17,18 @@ const CostForm = (props) => {
   };
 
   const submitHandler = (event) => {
-    event.preventDefault()  
+    event.preventDefault();
     const costData = {
-      name: inputName,
+      description: inputName,
       amount: inputAmount,
-      date: inputDate,
-    }
-    setInputName('');
-    setInputAmount(''); 
-    setInputDate('');
+      date: new Date(inputDate),
+    };
+    setInputName("");
+    setInputAmount("");
+    setInputDate("");
 
     props.onSaveCostData(costData);
-  }
+  };
 
   return (
     <form onSubmit={submitHandler}>
@@ -39,7 +39,9 @@ const CostForm = (props) => {
         </div>
         <div className="new-cost__control">
           <label>Amount</label>
-          <input value={inputAmount} onChange={amountChangeHandler}
+          <input
+            value={inputAmount}
+            onChange={amountChangeHandler}
             type="number"
             min="0.01"
             step="0.01"
@@ -47,15 +49,20 @@ const CostForm = (props) => {
         </div>
         <div className="new-cost__control">
           <label>Data</label>
-          <input value={inputDate} onChange={dateChangeHandler}
+          <input
+            value={inputDate}
+            onChange={dateChangeHandler}
             type="date"
-            min="2023-01-01"
+            min="2022-01-01"
             step="2023-12-12"
           />
         </div>
-        <div className="new-cost-actions">
-          <button type="submit">Add credits</button>
-        </div>
+      </div>
+      <div className="new-cost__actions">
+        <button type="submit">Add credits</button>
+        <button type="button" onClick={props.onCancel}>
+          Cancel
+        </button>
       </div>
     </form>
   );

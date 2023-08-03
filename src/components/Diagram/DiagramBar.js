@@ -1,4 +1,4 @@
-import "./DiagramBar.css";
+import styles from "./DiagramBar.module.css";
 
 const DiagramBar = (props) => {
   console.log(props);
@@ -8,14 +8,14 @@ const DiagramBar = (props) => {
   }
 
   return (
-    <div className="diagram-bar">
-      <div className="diagram-bar__inner">
+    <div className={styles["diagram-bar"]}>
+      <div className={styles["diagram-bar__inner"]}>
         <div
-          className="diagram-bar__fill"
+          className={styles["diagram-bar__fill"]}
           style={{ height: barFillHeight }}
         ></div>
       </div>
-      <div className="diagram-bar__label">{props.label}</div>
+      <div className={styles["diagram-bar__label"]}>{props.label}</div>
     </div>
   );
 };

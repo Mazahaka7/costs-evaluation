@@ -27,3 +27,12 @@
   align-items: center;
   text-align: left;
 }
+
+.new-cost__control.invalid input {
+  border-color: red;
+  background-color: rgb(235, 169, 169);
+}
+
+.new-cost__control.invalid label {
+  color: red;
+}

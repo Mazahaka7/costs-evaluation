@@ -1,5 +1,5 @@
 import DiagramBar from "./DiagramBar";
-import "./Diagram.css";
+import styles from "./Diagram.module.css";
 
 const Diagram = (props) => {
   const dataSetsValues = props.dataSets.map((dataSet) => dataSet.value);
@@ -7,7 +7,7 @@ const Diagram = (props) => {
   console.log(props.dataSets);
 
   return (
-    <div className="diagram">
+    <div className={styles.diagram}>
       {props.dataSets.map((dataSet) => (
         <DiagramBar
           key={dataSet.label}

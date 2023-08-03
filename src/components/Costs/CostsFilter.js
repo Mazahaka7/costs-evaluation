@@ -1,4 +1,4 @@
-import "./CostsFilter.css";
+import styles from "./CostsFilter.module.css";
 
 const CostsFilter = (props) => {
   const yearChangeHandler = (event) => {
@@ -7,8 +7,8 @@ const CostsFilter = (props) => {
   };
 
   return (
-    <div className="costs-filter">
-      <div className="costs-filter__control">
+    <div className={styles["costs-filter"]}>
+      <div className={styles["costs-filter__control"]}>
         <label>Select year</label>
         <select value={props.year} onChange={yearChangeHandler}>
           <option value="2023">2023</option>

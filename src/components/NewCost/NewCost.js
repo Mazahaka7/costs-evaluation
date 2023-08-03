@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CostForm from "./CostFrom";
-import "./NewCost.css";
+import CostForm from "./CostForm";
+import styles from "./NewCost.module.css";
 
 const NewCost = (props) => {
   const [showCostForm, SetShowCostForm] = useState(false);
@@ -19,8 +19,8 @@ const NewCost = (props) => {
     SetShowCostForm(false); //for cancel button in form
   };
   return (
-    <div className="new-cost">
-      {showCostForm ? ( //ternary operator for condition
+    <div className={styles["new-cost"]}>
+      {showCostForm ? ( //ternary operator for showing either CostForm or only button ADD
         <CostForm
           onSaveCostData={saveCostDataHandler}
           onCancel={cancelButtonHandler}
